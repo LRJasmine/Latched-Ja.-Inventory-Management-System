@@ -50,5 +50,9 @@ CREATE TABLE sales (
     PRIMARY KEY (id)
 );
 
+GRANT ALL PRIVILEGES ON latched_ja_database.* TO 'comp2140_student'@'localhost'
+IDENTIFIED BY 'PmEGW3L7fkKXRzvA';
+
+
 
 
