@@ -1,4 +1,5 @@
 <?php header('Access-Control-Allow-Origin: *'); 
+//work on this, add check to see if an item being added is new
 
 require 'phpmysqlconnection.php';
 

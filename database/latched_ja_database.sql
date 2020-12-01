@@ -39,7 +39,7 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS sales;
 CREATE TABLE sales (
 	id INT NOT NULL AUTO_INCREMENT,
     item_id INT NOT NULL,
