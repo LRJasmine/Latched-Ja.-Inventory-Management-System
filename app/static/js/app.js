@@ -15,6 +15,7 @@ $(document).ready(function(){
     hideDiv(newinventoryitem);
     hideDiv(newordersDiv);
     showDiv(orderslistDiv);
+    hideDiv(deleteinventoryitemDiv);
 
     $("#addneworders").click(function(){
         ordersPage(newordersDiv, orderslistDiv);
@@ -49,7 +50,7 @@ $(document).ready(function(){
         showDiv(newinventoryitem);
     });
 
-    $("#deleteiteminventorybtn").click(function(){
+    $("#deleteitembtn").click(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
         hideDiv(newinventoryitem);

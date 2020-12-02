@@ -88,7 +88,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                       <button class="dropdown-item" id="soldorrestockbtn" type="button">Sold or Restock Update</button>
                       <button class="dropdown-item" type="button" id="addnewinventoryitembtn">Add New Items to Inventory</button>
-                      <button class="dropdown-item" type="button" id="deleteiteminventorybtn">Remove Items from Inventory</button>
+                      <button class="dropdown-item" type="button" id="deleteitembtn">Remove Items from Inventory</button>
                       <button class="dropdown-item" type="button" id="adjustprices">Adjust Price</button>
                     </div>
                 </div>
@@ -235,7 +235,8 @@
                           <input type="" class="form-control" id="" placeholder="">
                       </div>
                       <div>
-                        <button class="btn btn-success" type="submit">Add Item To Inventory</button>
+                          <button class="btn btn-success" type="submit">Add Item To Inventory</button>
+                      </div>
                     </div>
                 </fieldset>              
             </div>
@@ -243,7 +244,27 @@
                 
       </div>
 
-      <div id="removeitemsinventory"></div>
+      <div id="removeitemsinventory">
+          <form id="removeinventoryitemform">
+              <div id="removeitemfieldset">
+                  <fieldset class="card removeitemcard">
+                      <div class="card-header">
+                          <legend>Permanently Remove Item from Inventory</legend>
+                      </div>
+                      <div class = "card-body">
+                          <div class="form-group">
+                              <label for="">Item Identificaton Number</label>
+                              <input type="" class="form-control" id="" placeholder="">
+                          </div>
+                          <div>
+                              <button class="btn btn-danger" type="submit">Remove Inventory Item Permanently</button>
+                          </div>
+                      </div>
+                  </fieldset>
+              </div>
+
+          </form>
+      </div>
 
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
