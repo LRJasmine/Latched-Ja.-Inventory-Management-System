@@ -70,7 +70,7 @@ img {
    
 }
 
-.card > h1{
+.managercard > h1{
     color: black;
     font-size: 84px;
     font-style: italic;
@@ -78,7 +78,7 @@ img {
     text-shadow: 3px 3px 10px  green;
 }
 
-.card-body > h2{
+.cardbody > h2{
     text-emphasis-style:initial ;
     text-align: center;
     text-transform: inherit;
