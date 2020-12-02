@@ -7,13 +7,12 @@ $(document).ready(function(){
     var inventorytable = $("inventorytable")
     var salesrestockDiv = $("#restockorsolditem");
     var newinventoryitem = $("#addnewiteminventory");
-    var deleteinventoryitemDIv = $("#removeitemsinventory");
+    var deleteinventoryitemDiv = $("#removeitemsinventory");
     
     showDiv(inventorylistDiv);
     hideDiv(adjustPriceDiv);
     hideDiv(salesrestockDiv);
     hideDiv(newinventoryitem);
-
     hideDiv(newordersDiv);
     showDiv(orderslistDiv);
 
@@ -38,27 +37,27 @@ $(document).ready(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
         hideDiv(newinventoryitem);
-        hideDiv(deleteinventoryitemDIv);
+        hideDiv(deleteinventoryitemDiv);
         showDiv(salesrestockDiv);
     });
 
-    $("#addnewiteminventorybtn").click(function(){
+    $("#addnewinventoryitem").click(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
-        showDiv(newinventoryitem);
-        hideDiv(deleteinventoryitemDIv);
         hideDiv(salesrestockDiv);
+        hideDiv(deleteinventoryitemDiv);
+        showDiv(newinventoryitem);
     });
 
     $("#deleteiteminventorybtn").click(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
         hideDiv(newinventoryitem);
-        showDiv(deleteinventoryitemDIv);
+        showDiv(deleteinventoryitemDiv);
         hideDiv(salesrestockDiv);
     });
 
-    $("#groupitemsbybtn").click(function(){
+    /*$("#groupitemsbybtn").click(function(){
         var tablecolumn = "hello";
         if($('#itemradiobtn').is(':checked')) {
             tablecolumn = $("#itemidhead")
@@ -82,7 +81,7 @@ $(document).ready(function(){
             tablecolumn = $("#itemidhead")
         }
         groupby(inventorytable, tablecolumn);
-    });
+    });*/
 
      /* Plugin to sort any table header */
     $('#itemidhead, #itemnamehead, #itemtypehead, #itemmaterialhead, #itemcolourhead, #itemquantityhead, #itempricehead')
@@ -174,7 +173,7 @@ function hideDiv(divname){
     divname.hide();
 }
 
-function groupby(inventorytable, tablecolumn){
+/*function groupby(inventorytable, tablecolumn){
     tablecolumn
         .wrapInner('<span title="sort this column"/>')
         .each(function(){
@@ -250,5 +249,5 @@ jQuery.fn.sortElements = (function(){
  
     };
  
-})();
+})();*/
 
