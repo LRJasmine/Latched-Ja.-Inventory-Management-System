@@ -17,10 +17,6 @@ $(document).ready(function(){
     hideDiv(newordersDiv);
     showDiv(orderslistDiv);
 
-
-    
-    //$("#addneworders").on('click', ordersPage);
-
     $("#addneworders").click(function(){
         ordersPage(newordersDiv, orderslistDiv);
     });
@@ -88,6 +84,41 @@ $(document).ready(function(){
         groupby(inventorytable, tablecolumn);
     });
 
+     /* Plugin to sort any table header */
+    $('#itemidhead, #itemnamehead, #itemtypehead, #itemmaterialhead, #itemcolourhead, #itemquantityhead, #itempricehead')
+        .wrapInner('<span title="sort this column"/>')
+        .each(function(){
+            
+            var th = $(this),
+                thIndex = th.index(),
+                inverse = false;
+            
+            th.click(function(){
+                
+                inventorytable.find('td').filter(function(){
+                    
+                    return $(this).index() === thIndex;
+                    
+                }).sortElements(function(a, b){
+                    
+                    return $.text([a]) > $.text([b]) ?
+                        inverse ? -1 : 1
+                        : inverse ? 1 : -1;
+                    
+                }, function(){
+                    
+                    // parentNode is the element we want to move
+                    return this.parentNode; 
+                    
+                });
+                
+                inverse = !inverse;
+                    
+            });
+                
+        });
+
+    /* Open and Close DropDown Menus*/
     $('#updatedropdownmenu, #groupbydropdownmenu').on({
         "shown.bs.dropdown": function() { this.closable = false; $('#inventorytable').css('margin-top', '250px'); },
         "click": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');},
@@ -220,3 +251,4 @@ jQuery.fn.sortElements = (function(){
     };
  
 })();
+
