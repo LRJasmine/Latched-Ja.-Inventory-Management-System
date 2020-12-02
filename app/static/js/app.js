@@ -41,7 +41,7 @@ $(document).ready(function(){
         showDiv(salesrestockDiv);
     });
 
-    $("#addnewinventoryitem").click(function(){
+    $("#addnewinventoryitembtn").click(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
         hideDiv(salesrestockDiv);
