@@ -4,11 +4,12 @@ $(document).ready(function(){
     var newordersDiv = $("#neworders");
     var inventorylistDiv = $("#inventoryview");
     var adjustPriceDiv = $("#adjustprice");
-    var inventorytable = $("inventorytable")
+    var inventorytable = $("#inventorytable")
     var salesrestockDiv = $("#restockorsolditem");
     var newinventoryitem = $("#addnewiteminventory");
     var deleteinventoryitemDiv = $("#removeitemsinventory");
     var updateorderstatusDiv = $("#updateorderstatus");
+    var inventorystatusreport = $("#inventorystatusreport");
     
     showDiv(inventorylistDiv);
     hideDiv(adjustPriceDiv);
@@ -18,6 +19,7 @@ $(document).ready(function(){
     showDiv(orderslistDiv);
     hideDiv(deleteinventoryitemDiv);
     hideDiv(updateorderstatusDiv);
+    hideDiv(inventorystatusreport);
 
     $("#addnewordersbtn").click(function(){
         showDiv(newordersDiv);
@@ -68,7 +70,17 @@ $(document).ready(function(){
         hideDiv(newordersDiv);
         hideDiv(orderslistDiv);
         showDiv(updateorderstatusDiv); 
-    })
+    });
+
+    $("#inventoryreportbtn").click(function(){
+        showDiv(inventorystatusreport);
+        hideDiv(deleteinventoryitemDiv);
+        hideDiv(newinventoryitem);
+        hideDiv(salesrestockDiv);
+        hideDiv(inventorylistDiv);
+        hideDiv(adjustPriceDiv);
+
+    });
 
     /*$("#groupitemsbybtn").click(function(){
         var tablecolumn = "hello";
