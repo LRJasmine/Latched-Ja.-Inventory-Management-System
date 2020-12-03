@@ -25,11 +25,17 @@ $(document).ready(function(){
         showDiv(newordersDiv);
         hideDiv(orderslistDiv);
         hide(updateorderstatusDiv);
+
     });
 
     $("#adjustprices").click(function(){
         hideDiv(inventorylistDiv);
         showDiv(adjustPriceDiv);
+        hideDiv(inventorylistDiv);
+        hideDiv(salesrestockDiv);
+        hideDiv(deleteinventoryitemDiv);
+        hideDiv(newinventoryitem);
+        hideDiv(inventorystatusreport);
     });
 
     $("#searchinventorybtn").click(function(){
