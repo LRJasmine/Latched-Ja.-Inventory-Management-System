@@ -84,7 +84,7 @@ $(document).ready(function(){
         groupby(inventorytable, tablecolumn);
     });*/
 
-     /* Plugin to sort any table header */
+     /* Plugin to sort any table header 
     $('#itemidhead, #itemnamehead, #itemtypehead, #itemmaterialhead, #itemcolourhead, #itemquantityhead, #itempricehead')
         .wrapInner('<span title="sort this column"/>')
         .each(function(){
@@ -116,7 +116,7 @@ $(document).ready(function(){
                     
             });
                 
-        });
+        });*/
 
     /* Open and Close DropDown Menus*/
     $('#updatedropdownmenu, #groupbydropdownmenu').on({
