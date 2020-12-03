@@ -99,7 +99,7 @@ $(document).ready(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
     });
-    $('#idradiobtn').click(function(){
+    /*$('#idradiobtn').click(function(){
         sortTable(0);
         //console.log("hello");
     });
@@ -126,7 +126,7 @@ $(document).ready(function(){
     $('#priceradiobtn').click(function(){ 
         sortTable(6);        
         //console.log("hello");
-    });
+    });*/
 
 
     /* Open and Close DropDown Menus*/
@@ -170,7 +170,39 @@ function hideDiv(divname){
     divname.hide();
 }
 
-function sortTable (n){
+/*function sortTable (n){
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     table = $("#inventorytable");
-}
+    switching = true;
+    dir = "asc"; 
+    while (switching) {
+        switching = false;
+        rows = $("#inventorytablt tr");
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].$("td")[n];
+            y = rows[i + 1].$("td")[n];
+            if (dir == "asc") {
+                if (x.html.toLowerCase() > y.html.toLowerCase()) {
+                    shouldSwitch= true;
+                    return false;
+                }
+            } else if (dir == "desc") {
+                if (x.html.toLowerCase() < y.html.toLowerCase()) {
+                    shouldSwitch = true;
+                    return false;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].after( rows[i + 1] );
+            switching = true;
+            switchcount ++;      
+          } else {
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+        }
+    }
+}*/
