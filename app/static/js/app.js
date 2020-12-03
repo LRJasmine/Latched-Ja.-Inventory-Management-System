@@ -4,7 +4,7 @@ $(document).ready(function(){
     var newordersDiv = $("#neworders");
     var inventorylistDiv = $("#inventoryview");
     var adjustPriceDiv = $("#adjustprice");
-    var inventorytable = $("#inventorytable")
+    //var inventorytable = $("#inventorytable")
     var salesrestockDiv = $("#restockorsolditem");
     var newinventoryitem = $("#addnewiteminventory");
     var deleteinventoryitemDiv = $("#removeitemsinventory");
@@ -20,6 +20,20 @@ $(document).ready(function(){
     hideDiv(deleteinventoryitemDiv);
     hideDiv(updateorderstatusDiv);
     hideDiv(inventorystatusreport);
+
+    $("#generatesalesreportbtn").click(function(){
+        $(location).attr('href','salesreport.html')
+    });
+    $("#orderspagebtn").click(function(){
+        $(location).attr('href','orders.html')
+    });
+    $("#inventorypagebtn").click(function(){
+        $(location).attr('href','inventory.html')
+    });
+    $("#supplierspagebtn").click(function(){
+        $(location).attr('href','suppliers.html')
+    });
+
 
     $("#addnewordersbtn").click(function(){
         showDiv(newordersDiv);
@@ -85,80 +99,41 @@ $(document).ready(function(){
         hideDiv(salesrestockDiv);
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
-
     });
-
-    /*$("#groupitemsbybtn").click(function(){
-        var tablecolumn = "hello";
-        if($('#itemradiobtn').is(':checked')) {
-            tablecolumn = $("#itemidhead")
-            console.log(tablecolumn);
-            groupby(inventorytable, $("#itemidhead"));
-
-
-        }else if($('#nameradiobtn').is(':checked')) { 
-            tablecolumn = $("#itemnamehead")
-        }else if($('#typeradiobtn').is(':checked')) { 
-            tablecolumn = $("#itemtypehead")
-        }else if($('#materialradiobtn').is(':checked')) { 
-            tablecolumn = $("#itemmaterialhead")
-        }else if($('#colourradiobtn').is(':checked')) { 
-            tablecolumn = $("#itemcolourhead")
-        }else if($('#quantityradiobtn').is(':checked')) { 
-            tablecolumn = $("#itemquantityhead")
-        }else if($('#priceradiobtn').is(':checked')) { 
-            tablecolumn = $("#itempricehead")
-        }else{ 
-            tablecolumn = $("#itemidhead")
-        }
-        groupby(inventorytable, tablecolumn);
-    });*/
-
-     /* Plugin to sort any table header 
-    $('#itemidhead, #itemnamehead, #itemtypehead, #itemmaterialhead, #itemcolourhead, #itemquantityhead, #itempricehead')
-        .wrapInner('<span title="sort this column"/>')
-        .each(function(){
-            
-            var th = $(this),
-                thIndex = th.index(),
-                inverse = false;
-            
-            th.click(function(){
-                
-                inventorytable.find('td').filter(function(){
-                    
-                    return $(this).index() === thIndex;
-                    
-                }).sortElements(function(a, b){
-                    
-                    return $.text([a]) > $.text([b]) ?
-                        inverse ? -1 : 1
-                        : inverse ? 1 : -1;
-                    
-                }, function(){
-                    
-                    // parentNode is the element we want to move
-                    return this.parentNode; 
-                    
-                });
-                
-                inverse = !inverse;
-                    
-            });
-                
-        });*/
-
+    $('#idradiobtn').click(function(){
+        sortTable(0);
+        //console.log("hello");
+    });
+    $('#nameradiobtn').click(function(){ 
+        sortTable(1);        
+        //console.log("hello");
+    });
+    $('#typeradiobtn').click(function(){ 
+        sortTable(2);        
+        //console.log("hello");
+    });
+    $('#materialradiobtn').click(function(){ 
+        sortTable(3);        
+        //console.log("hello");
+    });
+    $('#colourradiobtn').click(function(){ 
+        sortTable(4);        
+        //console.log("hello");
+    });
+    $('#quantityradiobtn').click(function(){ 
+        sortTable(5);        
+        //console.log("hello");
+    });
+    $('#priceradiobtn').click(function(){ 
+        sortTable(6);        
+        //console.log("hello");
+    });
     /* Open and Close DropDown Menus*/
     $('#updatedropdownmenu, #groupbydropdownmenu').on({
         "shown.bs.dropdown": function() { this.closable = false; $('#inventorytable').css('margin-top', '250px'); },
         "click": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');},
         "hide.bs.dropdown": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');}
     });
-    /*$('#groupbydropdownmenu').on({
-        "shown.bs.dropdown": function() { this.closable = false; $('#inventorytable').css('margin-top', '250px'); },
-        "click": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');},
-        "hide.bs.dropdown": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');}
-    });*/
             
     
     var additemsform = $("#placeorderformfieldset").clone();
@@ -194,81 +169,6 @@ function hideDiv(divname){
     divname.hide();
 }
 
-/*function groupby(inventorytable, tablecolumn){
-    tablecolumn
-        .wrapInner('<span title="sort this column"/>')
-        .each(function(){
-            
-            var th = $(this),
-                thIndex = th.index(),
-                inverse = false;
-
-            inventorytable.find('td').filter(function(){
-                    
-                return $(this).index() === thIndex;
-                
-            }).sortElements(function(a, b){
-                
-                return $.text([a]) > $.text([b]) ?
-                    inverse ? -1 : 1
-                    : inverse ? 1 : -1;
-                
-            }, function(){
-                
-                // parentNode is the element we want to move
-                return this.parentNode; 
-                
-            });
-            
-            inverse = !inverse;                
-                                    
-        });
-
+function sortTable (n){
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 }
-
-jQuery.fn.sortElements = (function(){
- 
-    var sort = [].sort;
- 
-    return function(comparator, getSortable) {
- 
-        getSortable = getSortable || function(){return this;};
- 
-        var placements = this.map(function(){
- 
-            var sortElement = getSortable.call(this),
-                parentNode = sortElement.parentNode,
- 
-                // Since the element itself will change position, we have
-                // to have some way of storing its original position in
-                // the DOM. The easiest way is to have a 'flag' node:
-                nextSibling = parentNode.insertBefore(
-                    document.createTextNode(''),
-                    sortElement.nextSibling
-                );
- 
-            return function() {
- 
-                if (parentNode === this) {
-                    throw new Error(
-                        "You can't sort elements if any one is a descendant of another."
-                    );
-                }
- 
-                // Insert before flag:
-                parentNode.insertBefore(this, nextSibling);
-                // Remove flag:
-                parentNode.removeChild(nextSibling);
- 
-            };
- 
-        });
- 
-        return sort.call(this, comparator).each(function(i){
-            placements[i].call(getSortable.call(this));
-        });
- 
-    };
- 
-})();*/
-
