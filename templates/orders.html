@@ -79,11 +79,10 @@
 
     <div id="orderslist">
       
-      <div class="d-flex justify-content-around orderpagebtns">
-        <button type="submit" class="btn btn-primary" id="addnewordersbtn">Add New Order</button>
-        <button type="submit" class="btn btn-primary" id="updateorderstatusbtn">Update Order Status</button>
+      <div>
+        <button type="submit" class="btn btn-primary" id="addneworders">Add New Order</button>
       </div>
-      <table class="orderstable table table-light table-bordered table-hover table-responsive-xl">
+      <table class="table table-light table-bordered table-hover table-responsive-xl">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Order ID</th>
@@ -94,7 +93,6 @@
             <th scope="col">Item Quantity</th>
             <th scope="col">Item Unit Price</th>
             <th scope="col">Order Total</th>
-            <th scope="col">Order Status</th>
           </tr>    
         </thead>
         <tbody>
@@ -104,37 +102,6 @@
                 
       </table>
     </div>
-
-    <div id="updateorderstatus">
-      <form class="" id="updateorderstatusform">
-          <div class="" id="updateorderstatusfieldset">
-              <fieldset id="" class="card updateorderstatuscard">
-                  <div class ="card-header">
-                      <legend type="button">Update Order Status</legend>
-                  </div>
-                  <div class="card-body itemscardbody">
-                    <div class="form-group">
-                      <label for="">Order ID</label>
-                      <input type="" class="form-control" id="" placeholder="Enter Order ID">
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="ordercancelled1" name="ordercancelled" class="custom-control-input">
-                        <label class="custom-control-label" for="ordercancelled1">Order Complete</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="ordercancelled2" name="ordercancelled" class="custom-control-input">
-                        <label class="custom-control-label" for="ordercancelled2">Order Cancelled</label>
-                    </div>
-                    <div>
-                        <button class="btn btn-success" type="submit">Update Order Status</button>
-                    </div>
-                  </div>
-              </fieldset>
-
-          </div>
-      </form>
-    </div>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
