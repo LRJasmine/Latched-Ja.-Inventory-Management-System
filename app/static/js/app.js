@@ -4,7 +4,6 @@ $(document).ready(function(){
     var newordersDiv = $("#neworders");
     var inventorylistDiv = $("#inventoryview");
     var adjustPriceDiv = $("#adjustprice");
-    //var inventorytable = $("#inventorytable")
     var salesrestockDiv = $("#restockorsolditem");
     var newinventoryitem = $("#addnewiteminventory");
     var deleteinventoryitemDiv = $("#removeitemsinventory");
@@ -128,6 +127,8 @@ $(document).ready(function(){
         sortTable(6);        
         //console.log("hello");
     });
+
+
     /* Open and Close DropDown Menus*/
     $('#updatedropdownmenu, #groupbydropdownmenu').on({
         "shown.bs.dropdown": function() { this.closable = false; $('#inventorytable').css('margin-top', '250px'); },
@@ -171,4 +172,5 @@ function hideDiv(divname){
 
 function sortTable (n){
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = $("#inventorytable");
 }
