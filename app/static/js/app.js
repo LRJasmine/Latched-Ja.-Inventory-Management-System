@@ -8,6 +8,7 @@ $(document).ready(function(){
     var salesrestockDiv = $("#restockorsolditem");
     var newinventoryitem = $("#addnewiteminventory");
     var deleteinventoryitemDiv = $("#removeitemsinventory");
+    var updateorderstatusDiv = $("#updateorderstatus");
     
     showDiv(inventorylistDiv);
     hideDiv(adjustPriceDiv);
@@ -16,12 +17,17 @@ $(document).ready(function(){
     hideDiv(newordersDiv);
     showDiv(orderslistDiv);
     hideDiv(deleteinventoryitemDiv);
+    hideDiv(updateorderstatusDiv);
 
-    $("#addneworders").click(function(){
-        ordersPage(newordersDiv, orderslistDiv);
+    $("#addnewordersbtn").click(function(){
+        showDiv(newordersDiv);
+        hideDiv(orderslistDiv);
+        hide(updateorderstatusDiv);
     });
+
     $("#adjustprices").click(function(){
-        adjustpriceform(inventorylistDiv, adjustPriceDiv);
+        hideDiv(inventorylistDiv);
+        showDiv(adjustPriceDiv);
     });
 
     $("#searchinventorybtn").click(function(){
@@ -57,6 +63,12 @@ $(document).ready(function(){
         showDiv(deleteinventoryitemDiv);
         hideDiv(salesrestockDiv);
     });
+
+    $("#updateorderstatusbtn").click(function(){
+        hideDiv(newordersDiv);
+        hideDiv(orderslistDiv);
+        showDiv(updateorderstatusDiv); 
+    })
 
     /*$("#groupitemsbybtn").click(function(){
         var tablecolumn = "hello";
@@ -154,16 +166,6 @@ function rearrange() {
     .find(".label-nbr").text(count).end();
     count++;
   });
-}
-
-function ordersPage(newordersDiv, orderslistDiv) {
-    showDiv(newordersDiv);
-    hideDiv(orderslistDiv);
-}
-
-function adjustpriceform(inventorylistDiv, adjustPriceDiv) {
-    hideDiv(inventorylistDiv);
-    showDiv(adjustPriceDiv);
 }
 
 function showDiv(divname){
