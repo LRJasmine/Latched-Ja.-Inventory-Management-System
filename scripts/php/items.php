@@ -4,8 +4,50 @@ require_once 'phpmysqlconnection.php';
 
 try {
  
-  $stmt = $conn->query("SELECT * FROM items");
-  $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        
+        if ($_GET['group'] === 'id') {
+
+            $stmt = $conn->query("SELECT * FROM items");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else if ($_GET['group'] === 'name') { 
+
+            $stmt = $conn->query("SELECT * FROM items ORDER BY name ASC");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else if ($_GET['group'] === 'type') {
+
+            $stmt = $conn->query("SELECT * FROM items ORDER BY type ASC");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else if ($_GET['group'] === 'material') {
+
+            $stmt = $conn->query("SELECT * FROM items ORDER BY item_material ASC");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else if ($_GET['group'] === 'colour') {
+
+            $stmt = $conn->query("SELECT * FROM items ORDER BY item_colour ASC");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else if ($_GET['group'] === 'qty') {
+
+            $stmt = $conn->query("SELECT * FROM items ORDER BY qty ASC");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else if ($_GET['group'] === 'price') {
+
+            $stmt = $conn->query("SELECT * FROM items ORDER BY sell_price ASC");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        } else {
+
+            $stmt = $conn->query("SELECT * FROM items");
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        }
+    }
 
   } catch(PDOException $e) {
     echo $stmt . "<br>" . $e->getMessage();
