@@ -1,0 +1,29 @@
+<div id="Employee Pay">
+<p> Enter the following information to calculate Employee pay</p>
+ <label for="txt_wage">Per Sale Wage:</label>
+ <input type="text" name="wage" id="txt_wage" value ="500"/>
+					
+ <label for="txt_hours">Amount of Sales made:</label>
+ <input type="text" name="sales" id="txt_sales" value= "0.0"/>   
+  <br/><br/>
+ <button value="calculate" onclick="calcSalary()">Calculate</button>
+ <p id="results"></p>
+                
+    <script type="text/javascript">
+    
+function calcSalary() {
+ var wage = parseFloat(document.getElementById('txt_wage').value);
+ var sales = parseFloat(document.getElementById('txt_sales').value);
+ var calculate = wage * sales;
+ 
+ document.getElementById('results').innerHTML = calculate;
+}
+    
+    </script>
+            
+                
+            
+
+</div>
+
+
