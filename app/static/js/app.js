@@ -99,34 +99,110 @@ $(document).ready(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
     });
-    /*$('#idradiobtn').click(function(){
-        sortTable(0);
+
+
+
+    $('#idradiobtn').click(function(){
+        //window.location.href = "../scripts/php/items.php?group=id";
         //console.log("hello");
+
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=id";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=id');
     });
+
     $('#nameradiobtn').click(function(){ 
-        sortTable(1);        
-        //console.log("hello");
+        //window.location.href = "../scripts/php/items.php?group=name";       
+    
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=name";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=name');
+      
     });
+
     $('#typeradiobtn').click(function(){ 
-        sortTable(2);        
+        //window.location.href = "../scripts/php/items.php?group=type";    
         //console.log("hello");
+
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=type";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=type');
     });
+
     $('#materialradiobtn').click(function(){ 
-        sortTable(3);        
+        //window.location.href = "../scripts/php/items.php?group=material";       
         //console.log("hello");
+
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=material";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=material');
     });
+
     $('#colourradiobtn').click(function(){ 
-        sortTable(4);        
+        //window.location.href = "../scripts/php/items.php?group=colour";      
         //console.log("hello");
+
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=colour";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=colour');
     });
+
     $('#quantityradiobtn').click(function(){ 
-        sortTable(5);        
+        //window.location.href = "../scripts/php/items.php?group=qty";        
         //console.log("hello");
+
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=qty";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=qty');
     });
+
     $('#priceradiobtn').click(function(){ 
-        sortTable(6);        
+        //window.location.href = "../scripts/php/items.php?group=price";        
         //console.log("hello");
-    });*/
+
+        httpRequest = new XMLHttpRequest();
+    
+        var url = "../scripts/php/items.php?group=price";
+        httpRequest.onreadystatechange = sendResult;
+        httpRequest.open('GET', url);
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        httpRequest.send('group=price');
+    });
+
+    function sendResult() {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+          if (httpRequest.status === 200) {
+            var response = httpRequest.responseText;
+            document.getElementById("inventorytable").innerHTML = response;
+          } else {
+            alert('There was a problem with the request.');
+          }
+    }
+    }
 
 
     /* Open and Close DropDown Menus*/

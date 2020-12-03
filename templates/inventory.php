@@ -40,13 +40,13 @@
                           Group Items By
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <button class="dropdown-item" id="idradiobtn" type="button">Item ID</button>
-                          <button class="dropdown-item" type="button" id="nameradiobtn">Item Name</button>
-                          <button class="dropdown-item" type="button" id="typeradiobtn">Item Type</button>
-                          <button class="dropdown-item" type="button" id="materialradiobtn">Item Material</button>
-                          <button class="dropdown-item" type="button" id="colourradiobtn">Item Colour</button>
-                          <button class="dropdown-item" type="button" id="quantityradiobtn">Item Quantity</button>
-                          <button class="dropdown-item" type="button" id="priceradiobtn">Item Price</button>
+                          <button class="dropdown-item" id="idradiobtn" name="group-id" type="button">Item ID</button>
+                          <button class="dropdown-item" type="button" name="group-name" id="nameradiobtn">Item Name</button>
+                          <button class="dropdown-item" type="button" name="group-type" id="typeradiobtn">Item Type</button>
+                          <button class="dropdown-item" type="button" name="group-material" id="materialradiobtn">Item Material</button>
+                          <button class="dropdown-item" type="button" name="group-colour" id="colourradiobtn">Item Colour</button>
+                          <button class="dropdown-item" type="button" name="group-qty" id="quantityradiobtn">Item Quantity</button>
+                          <button class="dropdown-item" type="button" name="group-price" id="priceradiobtn">Item Price</button>
                         </div>
                     </div>
                     <!--<div class="input-group-prepend">
