@@ -83,25 +83,7 @@
         <button type="submit" class="btn btn-primary" id="addneworders">Add New Order</button>
       </div>
       <div id="orders-section">
-        <!--<table class="table table-light table-bordered table-hover table-responsive-xl">
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Order ID</th>
-              <th scope="col">Order Placed by</th>
-              <th scope="col">Item Type</th>
-              <th scope="col">Item Colour Sold</th>
-              <th scope="col">Item Details</th>
-              <th scope="col">Item Quantity</th>
-              <th scope="col">Item Unit Price</th>
-              <th scope="col">Order Total</th>
-            </tr>    
-          </thead>
-          <tbody>
-          </tbody>
-          <tfoot>
-          </tfoot>
-                  
-        </table> -->
+        <?php include '../scripts/php/orders.php'?>
       </div>
     </div>
 

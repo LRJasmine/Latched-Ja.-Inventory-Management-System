@@ -1,42 +1,17 @@
 <?php header('Access-Control-Allow-Origin: *'); 
-//work on this, add check to see if an item being added is new
 
-require 'phpmysqlconnection.php';
+require_once 'phpmysqlconnection.php';
 
 try {
-
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-
-        $id = (int) $_GET['id'];
-        $qty = (int) $_GET['qty'];
-
-        if ($_GET['context'] === 'restock') {
-          
-            $sql = "UPDATE items SET qty = (qty + $qty) WHERE id = '$id'";
-            $conn->exec($sql);
-      
-        } else if ($_GET['context'] === 'sale') {
-
-            $sql = "UPDATE items SET qty = (qty - $qty)  WHERE id = '$id'";
-            $conn->exec($sql);
-
-
-        } else {
-
-            echo "CANNOT PROCESS REQUEST";
-
-        }
-        echo $id;
-        $stmt = $conn->query("SELECT * FROM items WHERE id LIKE '%$id%'");
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-      
-    }
+ 
+  $stmt = $conn->query("SELECT * FROM items");
+  $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
   } catch(PDOException $e) {
-    echo $sql . "<br>" . $e->getMessage();
+    echo $stmt . "<br>" . $e->getMessage();
   }
+
   
-  $conn = null;
 ?>
 
 <table class="table table-light table-bordered table-hover table-responsive-xl">
@@ -45,8 +20,8 @@ try {
             <th scope="col" id="itemidhead">Item ID</th>
             <th scope="col" id="itemnamehead">Item Name</th>
             <th scope="col" id="itemtypehead">Item Type</th>
-            <!--<th scope="col" id="itemmaterialhead">Item Material</th>
-            <th scope="col" id="itemcolourhead">Item Colour</th>-->
+            <th scope="col" id="itemcolourhead">Item Colour</th>
+            <th scope="col" id="itemmaterialhead">Item Material</th>
             <th scope="col" id="itemquantityhead">Item Current Quantity</th>
             <th scope="col" id="itempricehead">Item Sell Price</th>
             <th scope="col" id="itempricehead">Item Purchase Price</th>
@@ -59,6 +34,8 @@ try {
             <td><?= $row['id']; ?></td>
             <td><?= $row['name']; ?></td>
             <td><?= $row['type']; ?></td>
+            <td><?= $row['item_colour']; ?></td>
+            <td><?= $row['item_material']; ?></td>
             <td><?= $row['qty']; ?></td>
             <td><?= '$' . $row['sell_price']; ?></td>
             <td><?= '$' . $row['purchase_price']; ?></td>
@@ -66,6 +43,6 @@ try {
         </tr>
     <?php endforeach; ?>
     </tbody>
-    <tfoot>
-    </tfoot>
 </table> 
+
+

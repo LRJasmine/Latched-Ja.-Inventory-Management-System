@@ -34,7 +34,8 @@
             <h3>Date</h3>
         </div>
         <div>
-            <table class="table table-light table-bordered table-hover table-responsive-xl">
+            <?php include '../scripts/php/items.php'?>
+            <!--<table class="table table-light table-bordered table-hover table-responsive-xl">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Product Type</th>
@@ -70,7 +71,7 @@
                    
                 </tfoot>
                 
-            </table>
+            </table>-->
         </div>
         
     </div>
