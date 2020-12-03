@@ -20,46 +20,30 @@
     <h1> Latched Jamaica </h1>
          <div class="d-flex justify-content-between">       
              <div class="split left">
-                    <h2> </h2>
+                    <h2> Login </h2>
                     <div class="theleft">  
-                        <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> 
-  
-                        <div id="id01" class="modal"> 
-                      
-                            <form class="modal-content animate" action="/action_page.php"> 
-                                <div class="imgcontainer"> 
-                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span> 
-                                </div> 
-                      
-                                <div class="container"> 
-                                    <label><b>Username</b></label> 
-                                    <input type="text" placeholder="Enter Username" name="uname" required> 
-                      
-                                    <label><b>Password</b></label> 
-                                    <input type="password" placeholder="Enter Password" name="psw" required> 
-                                    <form>
-  
-                                    
-                                    <a href="manager.html" class="btn btn-primary"> Login </a>
-                                    
-                                    <input type="checkbox" checked="checked"> Remember me 
-                                </div> 
-                      
-                                <div class="container" style="background-color:#f1f1f1"> 
-                                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> 
-                                    <span class="psw">Forgot <a href="#">password?</a></span> 
-                                </div> 
-                            </form> 
-                        </div> 
-                      
-                        <script> 
-                            var modal = document.getElementById('id01'); 
-                            window.onclick = function(event) { 
-                                if (event.target == modal) { 
-                                    modal.style.display = "none"; 
-                                } 
-                            } 
-                        </script> 
+                        <form>
+                        <div class="form-group">
+                            <label for="Uname"> Username </label>
+                            <input type="text" class="form-control" id="username" aria-describedby="userhelp" placeholder="Enter username" required>
+                            
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label for="InputPassword">Password</label>
+                            <input type="password" class="form-control" id="InputPassword" placeholder="Enter password" required>
+                        </div>
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1"> Remember Me </label>
+                        </div>
+
+                        <a href="employee.html" class="btn btn-primary"> Sign In </a>
+                        
+                        </form>
+                    </div> 
                 </div>
 
 
@@ -71,19 +55,25 @@
 
                         <div class="theright"> 
 
-                        <label><b>Email</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" required>
- 
-                        <label><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
- 
-                        <label><b>Repeat Password</b></label>
-                        <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                        <input type="checkbox" checked="checked"> Remember me
-                        <p>To create an account you have to agree our <a href="#"></a>Terms & Privacy</a>.</p>
-            
-                        <div class="clearfix">
-                            <button type="button" class="cancelbtn">Cancel</button>
+                            <form>
+                                <div class="form-group">
+                                    <label for="email"> Email </label>
+                                    <input type="text" class="form-control" id="username"  placeholder="Enter email" required>
+                                    
+                                            
+                                    <label for="passd"> Password </label>
+                                    <input type="password" class="form-control" id="passd" placeholder="Enter password" required>
+                                
+                                                
+                                    <label for="pswrd"> Confirm Password</label>
+                                    <input type="password" class="form-control" id="pswrd" placeholder="Confirm password" required>
+                                </div>
+
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="echeck">
+                                    <label class="form-check-label" for="Check"> Remember Me </label>
+                                </div>
+                    
                                 <a href="" class="btn btn-primary"> Sign Up </a>
                             </form>
                         </div>

@@ -4,51 +4,28 @@ $(document).ready(function(){
     var newordersDiv = $("#neworders");
     var inventorylistDiv = $("#inventoryview");
     var adjustPriceDiv = $("#adjustprice");
+    var inventorytable = $("inventorytable")
     var salesrestockDiv = $("#restockorsolditem");
     var newinventoryitem = $("#addnewiteminventory");
-    var deleteinventoryitemDiv = $("#removeitemsinventory");
-    var updateorderstatusDiv = $("#updateorderstatus");
-    var inventorystatusreport = $("#inventorystatusreport");
+    var deleteinventoryitemDIv = $("#removeitemsinventory");
     
     showDiv(inventorylistDiv);
     hideDiv(adjustPriceDiv);
     hideDiv(salesrestockDiv);
     hideDiv(newinventoryitem);
+
     hideDiv(newordersDiv);
     showDiv(orderslistDiv);
-    hideDiv(deleteinventoryitemDiv);
-    hideDiv(updateorderstatusDiv);
-    hideDiv(inventorystatusreport);
-
-    $("#generatesalesreportbtn").click(function(){
-        $(location).attr('href','salesreport.html')
-    });
-    $("#orderspagebtn").click(function(){
-        $(location).attr('href','orders.html')
-    });
-    $("#inventorypagebtn").click(function(){
-        $(location).attr('href','inventory.html')
-    });
-    $("#supplierspagebtn").click(function(){
-        $(location).attr('href','suppliers.html')
-    });
 
 
-    $("#addnewordersbtn").click(function(){
-        showDiv(newordersDiv);
-        hideDiv(orderslistDiv);
-        hide(updateorderstatusDiv);
+    
+    //$("#addneworders").on('click', ordersPage);
 
+    $("#addneworders").click(function(){
+        ordersPage(newordersDiv, orderslistDiv);
     });
-
     $("#adjustprices").click(function(){
-        hideDiv(inventorylistDiv);
-        showDiv(adjustPriceDiv);
-        hideDiv(inventorylistDiv);
-        hideDiv(salesrestockDiv);
-        hideDiv(deleteinventoryitemDiv);
-        hideDiv(newinventoryitem);
-        hideDiv(inventorystatusreport);
+        adjustpriceform(inventorylistDiv, adjustPriceDiv);
     });
 
     $("#searchinventorybtn").click(function(){
@@ -65,23 +42,23 @@ $(document).ready(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
         hideDiv(newinventoryitem);
-        hideDiv(deleteinventoryitemDiv);
+        hideDiv(deleteinventoryitemDIv);
         showDiv(salesrestockDiv);
     });
 
-    $("#addnewinventoryitembtn").click(function(){
+    $("#addnewiteminventorybtn").click(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
-        hideDiv(salesrestockDiv);
-        hideDiv(deleteinventoryitemDiv);
         showDiv(newinventoryitem);
+        hideDiv(deleteinventoryitemDIv);
+        hideDiv(salesrestockDiv);
     });
 
-    $("#deleteitembtn").click(function(){
+    $("#deleteiteminventorybtn").click(function(){
         hideDiv(inventorylistDiv);
         hideDiv(adjustPriceDiv);
         hideDiv(newinventoryitem);
-        showDiv(deleteinventoryitemDiv);
+        showDiv(deleteinventoryitemDIv);
         hideDiv(salesrestockDiv);
     });
 
@@ -205,12 +182,16 @@ $(document).ready(function(){
     }
 
 
-    /* Open and Close DropDown Menus*/
     $('#updatedropdownmenu, #groupbydropdownmenu').on({
         "shown.bs.dropdown": function() { this.closable = false; $('#inventorytable').css('margin-top', '250px'); },
         "click": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');},
         "hide.bs.dropdown": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');}
     });
+    /*$('#groupbydropdownmenu').on({
+        "shown.bs.dropdown": function() { this.closable = false; $('#inventorytable').css('margin-top', '250px'); },
+        "click": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');},
+        "hide.bs.dropdown": function() { this.closable = true; $('#inventorytable').css('margin-top', '0px');}
+    });*/
             
     
     var additemsform = $("#placeorderformfieldset").clone();
@@ -238,6 +219,16 @@ function rearrange() {
   });
 }
 
+function ordersPage(newordersDiv, orderslistDiv) {
+    showDiv(newordersDiv);
+    hideDiv(orderslistDiv);
+}
+
+function adjustpriceform(inventorylistDiv, adjustPriceDiv) {
+    hideDiv(inventorylistDiv);
+    showDiv(adjustPriceDiv);
+}
+
 function showDiv(divname){
     divname.show();
 }
@@ -246,39 +237,80 @@ function hideDiv(divname){
     divname.hide();
 }
 
-/*function sortTable (n){
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = $("#inventorytable");
-    switching = true;
-    dir = "asc"; 
-    while (switching) {
-        switching = false;
-        rows = $("#inventorytablt tr");
-        for (i = 1; i < (rows.length - 1); i++) {
-            shouldSwitch = false;
-            x = rows[i].$("td")[n];
-            y = rows[i + 1].$("td")[n];
-            if (dir == "asc") {
-                if (x.html.toLowerCase() > y.html.toLowerCase()) {
-                    shouldSwitch= true;
-                    return false;
+function groupby(inventorytable, tablecolumn){
+    tablecolumn
+        .wrapInner('<span title="sort this column"/>')
+        .each(function(){
+            
+            var th = $(this),
+                thIndex = th.index(),
+                inverse = false;
+
+            inventorytable.find('td').filter(function(){
+                    
+                return $(this).index() === thIndex;
+                
+            }).sortElements(function(a, b){
+                
+                return $.text([a]) > $.text([b]) ?
+                    inverse ? -1 : 1
+                    : inverse ? 1 : -1;
+                
+            }, function(){
+                
+                // parentNode is the element we want to move
+                return this.parentNode; 
+                
+            });
+            
+            inverse = !inverse;                
+                                    
+        });
+
+}
+
+jQuery.fn.sortElements = (function(){
+ 
+    var sort = [].sort;
+ 
+    return function(comparator, getSortable) {
+ 
+        getSortable = getSortable || function(){return this;};
+ 
+        var placements = this.map(function(){
+ 
+            var sortElement = getSortable.call(this),
+                parentNode = sortElement.parentNode,
+ 
+                // Since the element itself will change position, we have
+                // to have some way of storing its original position in
+                // the DOM. The easiest way is to have a 'flag' node:
+                nextSibling = parentNode.insertBefore(
+                    document.createTextNode(''),
+                    sortElement.nextSibling
+                );
+ 
+            return function() {
+ 
+                if (parentNode === this) {
+                    throw new Error(
+                        "You can't sort elements if any one is a descendant of another."
+                    );
                 }
-            } else if (dir == "desc") {
-                if (x.html.toLowerCase() < y.html.toLowerCase()) {
-                    shouldSwitch = true;
-                    return false;
-                }
-            }
-        }
-        if (shouldSwitch) {
-            rows[i].after( rows[i + 1] );
-            switching = true;
-            switchcount ++;      
-          } else {
-            if (switchcount == 0 && dir == "asc") {
-              dir = "desc";
-              switching = true;
-            }
-        }
-    }
-}*/
+ 
+                // Insert before flag:
+                parentNode.insertBefore(this, nextSibling);
+                // Remove flag:
+                parentNode.removeChild(nextSibling);
+ 
+            };
+ 
+        });
+ 
+        return sort.call(this, comparator).each(function(i){
+            placements[i].call(getSortable.call(this));
+        });
+ 
+    };
+ 
+})();

@@ -49,37 +49,6 @@
                           <button class="dropdown-item" type="button" name="group-price" id="priceradiobtn">Item Price</button>
                         </div>
                     </div>
-                    <!--<div class="input-group-prepend">
-                      <button class="btn btn-info btn-sm" id="groupitemsbybtn" type="button">Group Items By</button>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="idradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="idradiobtn">Item ID</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="nameradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="nameradiobtn">Item Name</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="typeradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="typeradiobtn">Item Type</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="materialradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="materialradiobtn">Item Material</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="colourradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="colourradiobtn">Item Colour</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="quantityradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="quantityradiobtn">Item Quantity</label>
-                    </div>
-                    <div class="form-group custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="priceradiobtn" name="customRadioInline1" class="custom-control-input">
-                        <label class="custom-control-label" for="priceradiobtn">Item Price</label>
-                    </div>-->
                 </div>
                 <div class="dropdown" id="updatedropdownmenu">
                     <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
